@@ -8,12 +8,13 @@ namespace DunderMifflin.Mcp.Remote.Tools;
 [McpServerToolType]
 public static class EmployeesTool
 {
+    private static readonly HttpClient httpClient = new HttpClient();
+
     [McpServerTool(Name = "GetEmployees")]
     [Description(
         "Gets a list of Dunder Mifflin employees. Optionally takes a limit of the number of employees to return.")]
     public static async Task<List<Employee>> GetEmployees(int? limit = null)
     {
-        using var httpClient = new HttpClient();
         var response = await httpClient.GetAsync("https://dundermifflin-api.azurewebsites.net/employees");
         response.EnsureSuccessStatusCode();
 
