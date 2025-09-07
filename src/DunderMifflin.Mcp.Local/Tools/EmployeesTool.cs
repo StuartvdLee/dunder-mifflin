@@ -1,6 +1,6 @@
 using System.ComponentModel;
-using DunderMifflin.Api.Data;
-using DunderMifflin.Api.Models;
+using DunderMifflin.Shared.Data;
+using DunderMifflin.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 using ModelContextProtocol.Server;
 

@@ -1,4 +1,4 @@
-﻿using DunderMifflin.Api.Data;
+﻿using DunderMifflin.Shared.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

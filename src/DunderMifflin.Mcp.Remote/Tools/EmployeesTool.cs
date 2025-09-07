@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using System.Text.Json;
-using DunderMifflin.Api.Models;
+using DunderMifflin.Shared.Models;
 using ModelContextProtocol.Server;
 
 namespace DunderMifflin.Mcp.Remote.Tools;
@@ -8,14 +8,14 @@ namespace DunderMifflin.Mcp.Remote.Tools;
 [McpServerToolType]
 public static class EmployeesTool
 {
-    private static readonly HttpClient httpClient = new HttpClient();
+    private static readonly HttpClient HttpClient = new();
 
     [McpServerTool(Name = "GetEmployees")]
     [Description(
         "Gets a list of Dunder Mifflin employees. Optionally takes a limit of the number of employees to return.")]
     public static async Task<List<Employee>> GetEmployees(int? limit = null)
     {
-        var response = await httpClient.GetAsync("https://dundermifflin-api.azurewebsites.net/employees");
+        var response = await HttpClient.GetAsync("https://dundermifflin-api.azurewebsites.net/employees");
         response.EnsureSuccessStatusCode();
 
         var json = await response.Content.ReadAsStringAsync();

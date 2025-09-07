@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
-using DunderMifflin.Api.Data;
 using DunderMifflin.Api.Features;
+using DunderMifflin.Shared.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

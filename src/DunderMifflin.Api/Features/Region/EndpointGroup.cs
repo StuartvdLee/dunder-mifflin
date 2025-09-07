@@ -1,4 +1,4 @@
-using DunderMifflin.Api.Data;
+using DunderMifflin.Shared.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace DunderMifflin.Api.Features.Region;

@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\DunderMifflin.Api\DunderMifflin.Api.csproj"/>
+        <ProjectReference Include="..\DunderMifflin.Shared\DunderMifflin.Shared.csproj"/>
     </ItemGroup>
 
     <ItemGroup>

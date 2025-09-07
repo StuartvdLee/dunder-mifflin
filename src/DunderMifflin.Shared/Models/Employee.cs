@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DunderMifflin.Api.Models;
+namespace DunderMifflin.Shared.Models;
 
 public class Employee
 {
