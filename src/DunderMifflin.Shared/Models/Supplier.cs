@@ -1,10 +1,8 @@
-﻿namespace DunderMifflin.Api.Models;
+﻿namespace DunderMifflin.Shared.Models;
 
-public class Customer
+public class Supplier
 {
-    public int Customerid { get; set; }
-
-    public string Customercode { get; set; } = null!;
+    public int Supplierid { get; set; }
 
     public string Companyname { get; set; } = null!;
 
@@ -24,5 +22,9 @@ public class Customer
 
     public string? Phone { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public string? Fax { get; set; }
+
+    public string? Homepage { get; set; }
+
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

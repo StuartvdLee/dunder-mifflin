@@ -44,13 +44,12 @@ jobs:
           # Zip what App Service expects (folder content)
           cd ${{ env.PUBLISH_DIR }}/api && zip -r dundermifflin.api.zip . && cd -
 
-      - name: Publish Remote MCP Server
+      - name: Publish remote MCP server
         working-directory: src/DunderMifflin.Mcp.Remote
         if: ${{ github.event_name != 'pull_request' }}
         run: |
           dotnet publish ./DunderMifflin.Mcp.Remote.csproj \
             --configuration Release \
-            /p:ErrorOnDuplicatePublishOutputFiles=false \
             --output ${{ env.PUBLISH_DIR }}/mcp
           # Zip what App Service expects (folder content)
           cd ${{ env.PUBLISH_DIR }}/mcp && zip -r dundermifflin.mcp.zip . && cd -
@@ -62,7 +61,7 @@ jobs:
           name: dundermifflin-api-artifact
           path: ${{ env.PUBLISH_DIR }}/api/dundermifflin.api.zip
 
-      - name: Upload Remote MCP Server artifact
+      - name: Upload remote MCP server artifact
         if: ${{ github.event_name != 'pull_request' }}
         uses: actions/upload-artifact@v4
         with:
