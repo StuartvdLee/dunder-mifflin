@@ -22,7 +22,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v6
         with:
           workflow: build.yml
-          branch: feature/refactor # Temp
+          branch: main
           workflow_conclusion: success
           path: artifact
           name: dundermifflin-mcp-artifact
