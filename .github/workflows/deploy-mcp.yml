@@ -38,5 +38,4 @@ jobs:
         uses: Azure/webapps-deploy@v3.0.6
         with:
           app-name: dundermifflin-mcp
-          package: artifact/dundermifflin-mcp-artifact/dundermifflin.mcp.zip
-
+          package: artifact/dundermifflin.mcp.zip

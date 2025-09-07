@@ -261,3 +261,4 @@ package-lock.json
 appsettings.Development.json
 
 !src/DunderMifflin.Mcp.Local/Tools
+!src/DunderMifflin.Mcp.Remote/Tools

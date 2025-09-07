@@ -18,13 +18,14 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: Download artifact
+      - name: Download Dunder Mifflin API artifact
         uses: dawidd6/action-download-artifact@v6
         with:
           workflow: build.yml
           branch: main
           workflow_conclusion: success
           path: artifact
+          name: dundermifflin-api-artifact
 
       - name: Azure login
         uses: Azure/login@v2.3.0
@@ -37,5 +38,4 @@ jobs:
         uses: Azure/webapps-deploy@v3.0.6
         with:
           app-name: dundermifflin-api
-          package: artifact/dundermifflin-artifact/dundermifflin.zip
-
+          package: artifact/dundermifflin.api.zip

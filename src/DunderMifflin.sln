@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DunderMifflin.Api", "Dunder
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DunderMifflin.Mcp.Local", "DunderMifflin.Mcp.Local\DunderMifflin.Mcp.Local.csproj", "{3DA9C240-9B5F-4D29-BDAE-A8196930D194}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DunderMifflin.Mcp.Remote", "DunderMifflin.Mcp.Remote\DunderMifflin.Mcp.Remote.csproj", "{E4991AD5-B3B5-41B2-A9E4-35FC2BAF69CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{3DA9C240-9B5F-4D29-BDAE-A8196930D194}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DA9C240-9B5F-4D29-BDAE-A8196930D194}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DA9C240-9B5F-4D29-BDAE-A8196930D194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4991AD5-B3B5-41B2-A9E4-35FC2BAF69CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4991AD5-B3B5-41B2-A9E4-35FC2BAF69CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4991AD5-B3B5-41B2-A9E4-35FC2BAF69CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4991AD5-B3B5-41B2-A9E4-35FC2BAF69CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
