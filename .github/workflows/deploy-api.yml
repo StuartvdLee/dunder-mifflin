@@ -38,4 +38,4 @@ jobs:
         uses: Azure/webapps-deploy@v3.0.6
         with:
           app-name: dundermifflin-api
-          package: artifact/dundermifflin-api-artifact/dundermifflin.api.zip
+          package: artifact/dundermifflin.api.zip
