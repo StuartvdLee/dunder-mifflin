@@ -4,7 +4,8 @@ builder.Services
     .AddMcpServer()
     .WithHttpTransport()
     .WithToolsFromAssembly()
-    .WithPromptsFromAssembly();
+    .WithPromptsFromAssembly()
+    .WithResourcesFromAssembly();
 
 var app = builder.Build();
 
