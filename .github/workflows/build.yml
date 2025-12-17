@@ -34,6 +34,10 @@ jobs:
         working-directory: src
         run: dotnet build --no-restore --configuration Release
 
+      - name: Run tests
+        working-directory: src
+        run: dotnet test --no-build --configuration Release --verbosity normal
+
       - name: Publish API
         working-directory: src/DunderMifflin.Api
         if: ${{ github.event_name != 'pull_request' }}
