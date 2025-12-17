@@ -21,12 +21,12 @@ public class EmployeesToolRemoteTests
     }
 
     [Fact]
-    public async Task GetEmployees_WithoutLimit_ReturnsAllEmployees()
+    public void GetEmployees_WithoutLimit_ReturnsAllEmployees()
     {
         // Arrange
         var employees = GetTestEmployees();
         var json = JsonSerializer.Serialize(employees);
-        
+
         var mockHttpMessageHandler = new Mock<HttpMessageHandler>();
         mockHttpMessageHandler.Protected()
             .Setup<Task<HttpResponseMessage>>(
@@ -40,14 +40,14 @@ public class EmployeesToolRemoteTests
             });
 
         var httpClient = new HttpClient(mockHttpMessageHandler.Object);
-        
+
         // Note: The Remote EmployeesTool uses a static HttpClient, so we need to test the logic
         // This test validates the expected behavior based on the code structure
 
         // Act & Assert
         // Since we can't inject HttpClient into the static class, we're testing the logic flow
         Assert.Equal(5, employees.Count);
-        
+
         // Test the limit logic directly
         var limitedEmployees = employees.Take(3).ToList();
         Assert.Equal(3, limitedEmployees.Count);
