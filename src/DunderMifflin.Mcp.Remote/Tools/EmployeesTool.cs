@@ -6,16 +6,16 @@ using ModelContextProtocol.Server;
 namespace DunderMifflin.Mcp.Remote.Tools;
 
 [McpServerToolType]
-public static class EmployeesTool
+public class EmployeesTool(HttpClient httpClient)
 {
-    private static readonly HttpClient HttpClient = new();
+    private readonly HttpClient _httpClient = httpClient;
 
     [McpServerTool(Name = "GetEmployees")]
     [Description(
         "Gets a list of Dunder Mifflin employees. Optionally takes a limit of the number of employees to return.")]
-    public static async Task<List<Employee>> GetEmployees(int? limit = null)
+    public async Task<List<Employee>> GetEmployees(int? limit = null)
     {
-        var response = await HttpClient.GetAsync("https://dundermifflin-api.azurewebsites.net/employees");
+        var response = await _httpClient.GetAsync("https://dundermifflin-api.azurewebsites.net/employees");
         response.EnsureSuccessStatusCode();
 
         var json = await response.Content.ReadAsStringAsync();
