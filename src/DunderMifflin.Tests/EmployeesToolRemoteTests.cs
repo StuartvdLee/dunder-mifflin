@@ -1,8 +1,4 @@
-using System.Net;
-using System.Text.Json;
 using DunderMifflin.Shared.Models;
-using Moq;
-using Moq.Protected;
 
 namespace DunderMifflin.Tests;
 
@@ -25,23 +21,8 @@ public class EmployeesToolRemoteTests
     {
         // Arrange
         var employees = GetTestEmployees();
-        var json = JsonSerializer.Serialize(employees);
 
-        var mockHttpMessageHandler = new Mock<HttpMessageHandler>();
-        mockHttpMessageHandler.Protected()
-            .Setup<Task<HttpResponseMessage>>(
-                "SendAsync",
-                ItExpr.IsAny<HttpRequestMessage>(),
-                ItExpr.IsAny<CancellationToken>())
-            .ReturnsAsync(new HttpResponseMessage
-            {
-                StatusCode = HttpStatusCode.OK,
-                Content = new StringContent(json)
-            });
-
-        var httpClient = new HttpClient(mockHttpMessageHandler.Object);
-
-        // Note: The Remote EmployeesTool uses a static HttpClient, so we need to test the logic
+        // Note: The Remote EmployeesTool uses a static HttpClient, so we can't mock it
         // This test validates the expected behavior based on the code structure
 
         // Act & Assert
