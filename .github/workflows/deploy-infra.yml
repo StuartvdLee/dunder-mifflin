@@ -52,35 +52,35 @@ jobs:
             postgresqlAdministratorLoginPassword='${{ secrets.POSTGRES_ADMIN_PASSWORD }}' \
             postgresqlDunderMifflinConnectionString='${{ secrets.POSTGRES_CONNECTION_STRING_DUNDERMIFFLIN }}'
 
-  DeployDatabase:
-    name: Deploy database
-    runs-on: ubuntu-latest
-    environment: Dev
-    timeout-minutes: 10
-    needs: DeployInfra
+  # DeployDatabase:
+  #   name: Deploy database
+  #   runs-on: ubuntu-latest
+  #   environment: Dev
+  #   timeout-minutes: 10
+  #   needs: DeployInfra
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v5
+  #   steps:
+  #   - name: Checkout repository
+  #     uses: actions/checkout@v5
 
-    - name: Azure login
-      uses: Azure/login@v2.3.0
-      with:
-        client-id: ${{ secrets.CLIENT_ID }}
-        tenant-id: ${{ secrets.TENANT_ID }}
-        subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+  #   - name: Azure login
+  #     uses: Azure/login@v2.3.0
+  #     with:
+  #       client-id: ${{ secrets.CLIENT_ID }}
+  #       tenant-id: ${{ secrets.TENANT_ID }}
+  #       subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
 
-    # Create and populate are split up because we need to switch database after creation
-    - name: Create database
-      uses: Azure/postgresql@v1.2.0
-      with:
-        server-name: dundermifflin.postgres.database.azure.com
-        connection-string: ${{ secrets.POSTGRES_CONNECTION_STRING}}
-        plsql-file: database/PostgreSQL/00_DunderMifflinCreate.sql
+  #   # Create and populate are split up because we need to switch database after creation
+  #   - name: Create database
+  #     uses: Azure/postgresql@v1.2.0
+  #     with:
+  #       server-name: dundermifflin.postgres.database.azure.com
+  #       connection-string: ${{ secrets.POSTGRES_CONNECTION_STRING}}
+  #       plsql-file: database/PostgreSQL/00_DunderMifflinCreate.sql
 
-    - name: Populate database
-      uses: Azure/postgresql@v1.2.0
-      with:
-        server-name: dundermifflin.postgres.database.azure.com
-        connection-string: ${{ secrets.POSTGRES_CONNECTION_STRING_DUNDERMIFFLIN}}
-        plsql-file: database/PostgreSQL/Bootstrap/*.sql
+  #   - name: Populate database
+  #     uses: Azure/postgresql@v1.2.0
+  #     with:
+  #       server-name: dundermifflin.postgres.database.azure.com
+  #       connection-string: ${{ secrets.POSTGRES_CONNECTION_STRING_DUNDERMIFFLIN}}
+  #       plsql-file: database/PostgreSQL/Bootstrap/*.sql
