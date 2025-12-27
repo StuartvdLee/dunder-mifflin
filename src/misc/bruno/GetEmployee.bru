@@ -1,0 +1,16 @@
+meta {
+  name: GetEmployee
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://dundermifflin-api.azurewebsites.net/employees/5
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
