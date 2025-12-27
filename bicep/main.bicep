@@ -88,6 +88,15 @@ resource microsoftFoundry 'Microsoft.CognitiveServices/accounts@2025-09-01' = {
   }
 }
 
+resource microsoftFoundryProject 'Microsoft.CognitiveServices/accounts/projects@2025-09-01' = {
+  name: '${appName}-proj'
+  parent: microsoftFoundry
+  location: 'swedencentral'
+  identity: {
+    type: 'SystemAssigned'
+  }
+}
+
 // resource postgresqlServer 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' = {
 //   name: appName
 //   location: 'northeurope'
