@@ -82,6 +82,9 @@ resource microsoftFoundry 'Microsoft.CognitiveServices/accounts@2025-09-01' = {
     publicNetworkAccess: 'Enabled'
     disableLocalAuth: false
   }
+  identity: {
+    type: 'SystemAssigned'
+  }
 }
 
 // resource postgresqlServer 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' = {
