@@ -74,13 +74,13 @@ jobs:
     - name: Create database
       uses: Azure/postgresql@v1.2.0
       with:
-        server-name: dundermifflin.postgres.database.azure.com
+        server-name: dundermifflin-psql.postgres.database.azure.com
         connection-string: ${{ secrets.POSTGRES_CONNECTION_STRING}}
         plsql-file: database/PostgreSQL/00_DunderMifflinCreate.sql
 
     - name: Populate database
       uses: Azure/postgresql@v1.2.0
       with:
-        server-name: dundermifflin.postgres.database.azure.com
+        server-name: dundermifflin-psql.postgres.database.azure.com
         connection-string: ${{ secrets.POSTGRES_CONNECTION_STRING_DUNDERMIFFLIN}}
         plsql-file: database/PostgreSQL/Bootstrap/*.sql
