@@ -11,11 +11,14 @@ public class HandbookResource
     [Description("Employee handbook overview")]
     public string EmployeeHandbook()
     {
-        // Don't forget to update the path when demoing!
-        var path = "/path/to/src/misc/employee_handbook.md";
-        if (!File.Exists(path))
-            throw new FileNotFoundException("Handbook not found", path);
+        // Calculate path relative to the application's base directory
+        var baseDirectory = AppContext.BaseDirectory;
+        var path = Path.Combine(baseDirectory, "..", "..", "..", "..", "misc", "employee_handbook.md");
+        var normalizedPath = Path.GetFullPath(path);
+        
+        if (!File.Exists(normalizedPath))
+            throw new FileNotFoundException("Handbook not found", normalizedPath);
 
-        return File.ReadAllText(path, Encoding.UTF8);
+        return File.ReadAllText(normalizedPath, Encoding.UTF8);
     }
 }
