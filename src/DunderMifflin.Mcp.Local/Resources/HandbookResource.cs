@@ -11,10 +11,9 @@ public class HandbookResource
     [Description("Employee handbook overview")]
     public string EmployeeHandbook()
     {
-        // Search up the directory tree for the misc folder (with max depth limit)
         var baseDirectory = AppContext.BaseDirectory;
         var currentDir = new DirectoryInfo(baseDirectory);
-        const int maxDepth = 10; // Reasonable limit to prevent excessive traversal
+        const int maxDepth = 10;
         var depth = 0;
         
         while (currentDir != null && depth < maxDepth)
