@@ -82,6 +82,7 @@ resource microsoftFoundry 'Microsoft.CognitiveServices/accounts@2025-09-01' = {
     associatedProjects: ['${appName}-proj']
     publicNetworkAccess: 'Enabled'
     disableLocalAuth: false
+    customSubDomainName: '${appName}-aif'
   }
   identity: {
     type: 'SystemAssigned'
