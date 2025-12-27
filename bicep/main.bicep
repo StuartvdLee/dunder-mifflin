@@ -79,6 +79,7 @@ resource microsoftFoundry 'Microsoft.CognitiveServices/accounts@2025-09-01' = {
     allowProjectManagement: true
     networkAcls: { defaultAction: 'Allow' }
     defaultProject: '${appName}-proj'
+    associatedProjects: ['${appName}-proj']
     publicNetworkAccess: 'Enabled'
     disableLocalAuth: false
   }
