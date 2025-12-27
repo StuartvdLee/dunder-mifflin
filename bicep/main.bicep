@@ -69,7 +69,7 @@ resource apiAppServiceAppSettings 'Microsoft.Web/sites/config@2024-11-01' = {
 }
 
 resource postgresqlServer 'Microsoft.DBforPostgreSQL/flexibleServers@2024-08-01' = {
-  name: '${appName}-psql'
+  name: appName
   location: 'northeurope'
   sku: {
     name: 'Standard_B1ms'
