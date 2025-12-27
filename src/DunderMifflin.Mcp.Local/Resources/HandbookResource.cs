@@ -12,7 +12,7 @@ public class HandbookResource
     public string EmployeeHandbook()
     {
         // Don't forget to update the path when demoing!
-        var path = "/Users/stuart/Repositories/DunderMifflin/src/misc/employee_handbook.md";
+        var path = "/path/to/src/misc/employee_handbook.md";
         if (!File.Exists(path))
             throw new FileNotFoundException("Handbook not found", path);
 
